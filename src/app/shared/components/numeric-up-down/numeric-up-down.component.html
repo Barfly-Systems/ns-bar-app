@@ -1,0 +1,7 @@
+<GridLayout style="text-align: center; padding-top: 15;" columns="*,*,*,*,*" rows="*">
+    <Label col="0" row="1" text="{{productSize.sizeName}}"></Label>
+    <Label col="1" row="1" text="{{productSize.standardPriceGross | currency:'GBP'}}"></Label>
+    <Label col="2" row="1" text="{{numberToOrder}}" ></Label>
+    <label col="3" row="1" text="&#xf068;" class="fas" (tap)="changeOrder(-1)"></label>
+    <label col="4" row="1" text="&#xf067;" class="fas" (tap)="changeOrder(1)"></label>
+</GridLayout>

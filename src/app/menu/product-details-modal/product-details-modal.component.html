@@ -1,0 +1,19 @@
+<StackLayout backgroundColor="white" class="page">
+    <Image style="text-align: center" src="https://lagunitas.com/assets/img/logo-with-splat.png" horizontalAlignment="center" stretch="aspectRatio"></Image>
+    <Label style="text-align: center;" class="productHeader" text="{{model.product.name}}" color="black" textWrap="true"></Label>
+    <Label style="text-align: center;" class="productSubHeader" text="IPA (6.5%)", color="red"></Label>
+    <TextView text="{{model.productDetails.productDetails.description}}" editable="false"></TextView>
+    <StackLayout>
+        <ListView [items]="model.productDetails.productPrices" class="list-group" height="130">
+            <ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">
+                <!-- The item template can only have a single root view container (e.g. GridLayout, StackLayout, etc.)-->
+                <GridLayout>
+                    <!-- <Label [text]="item.sizeName" class="list-group-item"></Label> -->
+                    <ns-numeric-up-down [productSize]="item" [numberToOrder]="item.qty" (orderChanged)="handleOrderChange($event)"></ns-numeric-up-down>
+                </GridLayout>
+            </ng-template>
+        </ListView>     
+        <Button text="ADD TO ORDER" (tap)="addToBasket()"></Button>
+        <Button text="CLOSE MODAL" (tap)="onClose()"></Button>
+    </StackLayout>
+</StackLayout>

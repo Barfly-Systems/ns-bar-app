@@ -1,0 +1,11 @@
+<StackLayout orientation="vertical">
+    <TextField hint="Filter"></TextField>
+    <ListView [items]="organisationList" (itemTap)="onItemTap($event)" class="list-group" height="500">
+        <ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">
+            <!-- The item template can only have a single root view container (e.g. GridLayout, StackLayout, etc.)-->
+            <GridLayout>
+                <Label [text]="item.fullAddress" class="list-group-item"></Label>
+            </GridLayout>
+        </ng-template>
+    </ListView>
+</StackLayout>

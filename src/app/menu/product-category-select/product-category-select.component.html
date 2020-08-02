@@ -1,0 +1,26 @@
+<ActionBar>
+    <!-- 
+    Use the NavigationButton as a side-drawer button in Android
+    because ActionItems are shown on the right side of the ActionBar
+    -->
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+    <!-- 
+    Use the ActionItem for IOS with position set to left. Using the
+    NavigationButton as a side-drawer button in iOS is not possible,
+    because its function is to always navigate back in the application.
+    -->
+    <ActionItem icon="res://menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
+        ios.position="left">
+    </ActionItem>
+    <Label text="SELECT YOUR CATEGORY"></Label>
+</ActionBar>
+
+<GridLayout class="page__content">
+    <ScrollView orientation="vertical" height="500">
+        <StackLayout>
+            <StackLayout width="90%" *ngFor="let item of _categoryList" class="category-bar" (tap)="selectItem(item)">
+                <Label text="{{item.categoryName}}" class="upper"></Label>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>    
+</GridLayout>
